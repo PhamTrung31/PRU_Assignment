@@ -11,8 +11,12 @@ public class HeightScoring : MonoBehaviour
     {
         _highestY = transform.position.y;
         LoadScore();
-        Instance = this; // Set the singleton instance
+       // Set the singleton instance
 
+    }
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void Update()

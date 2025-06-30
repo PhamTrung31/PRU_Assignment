@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 using System.Collections;
 using System;
+using Unity.VisualScripting;
 public class PLayer : MonoBehaviour
 {
     private Vector2 movementInput;
@@ -12,13 +13,20 @@ public class PLayer : MonoBehaviour
     private BoxCollider2D _bxCollider2D;
 
     private HeightScoring _heightScoring;
-    [SerializeField] private float _dashSpeed = 10f;
-    [SerializeField] private float _dashTime = 0.2f;
+    [SerializeField] private float _Speed = 2f;
+    //[SerializeField] private float _dashTime = 0.2f;
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _BoostForce = 100f;
-    public int health = 2;
-    private bool _isDashing = false;
+    public int health = 1;
+    public int maxhealth = 2;
+    //private bool _isDashing = false;
     private bool _canmove = false;
+    private int jumpCount = 0;
+    private const int maxJumpCount = 2; // 1 jump + 1 boost
+    private bool wasGrounded = true;
+    private bool canJumpBoost = true;
+    private bool shieldOn = false;
+    private Coroutine _shieldCoroutine;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -35,65 +43,109 @@ public class PLayer : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        bool grounded = isGrounded();
+
+        if (!wasGrounded && grounded)
+        {
+            jumpCount = 0; // Reset jump/boost on landing
+        }
+
+        wasGrounded = grounded;
+
+        if (!grounded)
+        {
+            _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y); // Optional: disable air movement
+        }
+
+        Move();
+    }
 
     private void OnMove(InputValue value)
     {
         if (!isGrounded())
         {
-            return;  // Prevent movement if not grounded
+            movementInput = Vector2.zero; // Clear input in air
+            return;
         }
-        Vector2 input = value.Get<Vector2>();
 
-        if (_isDashing || !_canmove)
+        movementInput = value.Get<Vector2>();
+
+        //if (_isDashing || !_canmove)
+        //    return;
+
+
+
+
+    }
+    private void Move()
+    {
+        if (!isGrounded())
+        {
+            return;  // Prevent movement if not grounded
+
+        }
+
+
+        Debug.Log("Moving");
+        if (!_canmove)
+        {
             return;
 
-        if (input.x < 0)
-        {
-            StartCoroutine(Dash(-1));
         }
-        else if (input.x > 0)
-        {
-            StartCoroutine(Dash(1));
-        }
+        _rb.linearVelocity = new Vector2(movementInput.x * _Speed, _rb.linearVelocity.y);
     }
 
-    private System.Collections.IEnumerator Dash(int direction)
-    {
-        _isDashing = true;
 
-        // Set velocity instantly
-        _rb.linearVelocity = new Vector2(direction * _dashSpeed, 0);
+    //private System.Collections.IEnumerator Dash(int direction)
+    //{
+    //    _isDashing = true;
 
-        // Wait for the dash time
-        yield return new WaitForSeconds(_dashTime);
+    //    // Set velocity instantly
+    //    _rb.linearVelocity = new Vector2(direction * _dashSpeed, 0);
 
-        // Stop velocity
-        _rb.linearVelocity = Vector2.zero;
+    //    // Wait for the dash time
+    //    yield return new WaitForSeconds(_dashTime);
 
-        _isDashing = false;
-    }
+    //    // Stop velocity
+    //    _rb.linearVelocity = Vector2.zero;
+
+    //    _isDashing = false;
+    //}
 
     private void OnJump(InputValue value)
     {
-        if (value.isPressed)
+        if (!value.isPressed)
+            return;
+
+        if (isGrounded())
         {
-            if (isGrounded() && !_isDashing)
+            Jump();         // First jump
+            jumpCount = 1;  // We've used 1 jump
+        }
+        else if (jumpCount == 1)
+        {
+            if (canJumpBoost)
             {
-                Jump();
+                Boost();        // Second "jump" becomes boost
+                jumpCount = 2;  // Used both jump and boost
+                canJumpBoost = false; // Disable further boosts until grounded
             }
+
         }
     }
 
     private void Jump()
     {
-        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _jumpForce);
+        _rb.linearVelocity = new Vector2(0f, _jumpForce); // Remove x velocity during jump
         _canmove = true;
     }
 
     private bool isGrounded()
     {
         var bounds = _bxCollider2D.bounds;
-        float rayLength = 0.1f;
+        float rayLength = 0.05f;
 
         Vector2 left = new(bounds.min.x + 0.01f, bounds.min.y);
         Vector2 right = new(bounds.max.x - 0.01f, bounds.min.y);
@@ -110,9 +162,7 @@ public class PLayer : MonoBehaviour
 
             if (health <= 0)
             {
-                Debug.Log("Player is dead");
-                _heightScoring.SaveScore();
-                // Handle death here, e.g., reload scene
+                Dead();
             }
             else
             {
@@ -126,6 +176,29 @@ public class PLayer : MonoBehaviour
             Boost();
             Destroy(other.gameObject); // Remove the boost item after collection
         }
+        else if (other.CompareTag("Health"))
+        {
+            if (health < maxhealth)
+            {
+                health += 1;
+            }
+            Destroy(other.gameObject); // Remove the health item after collection
+        }
+        else if (other.CompareTag("Shield"))
+        {
+            StartShieldCoroutine();
+            Destroy(other.gameObject); // Remove the shield item after collection
+        }
+        else if (other.CompareTag("Trap"))
+        {
+            if (shieldOn)
+            {
+                return;
+            }
+            health--;
+            Dead();
+
+        }
     }
 
     private void Boost()
@@ -135,4 +208,29 @@ public class PLayer : MonoBehaviour
     }
 
 
+    private IEnumerator TriggerShield()
+    {
+        shieldOn = true;
+        yield return new WaitForSeconds(3f); // Shield lasts for 3 seconds, Evinsible after that
+        shieldOn = false;
+        _shieldCoroutine = null;
+    }
+
+    private void StartShieldCoroutine()
+    {
+        if (_shieldCoroutine != null)
+        {
+            StopCoroutine(TriggerShield());
+        }
+        _shieldCoroutine = StartCoroutine(TriggerShield());
+    }
+
+    public void Dead()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Player is dead");
+            _heightScoring.SaveScore();
+        }
+    }
 }
