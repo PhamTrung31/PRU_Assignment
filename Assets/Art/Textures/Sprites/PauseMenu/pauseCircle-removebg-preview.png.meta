@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pauseCircle-removebg-preview_0: 3183839768061208829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
