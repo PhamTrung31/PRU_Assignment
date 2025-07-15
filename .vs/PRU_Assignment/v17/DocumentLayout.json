@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|c:\\lva\\fptu\\ki 7\\pru212\\asm\\pru_assignment\\assets\\code\\scripts\\platformspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\platformspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\rotatingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\rotatingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\deadgroundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\deadgroundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\movingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\movingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|c:\\lva\\fptu\\ki 7\\pru212\\asm\\pru_assignment\\assets\\code\\scripts\\scriptplatform\\platformspawnerlv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\platformspawnerlv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\platformspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\platformspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\sawbladecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\sawbladecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\disappearingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\disappearingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\deadgroundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\deadgroundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\movingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\movingplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\sawplatformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\sawplatformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\assets\\code\\scripts\\scriptplatform\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\scriptplatform\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +50,131 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeadGroundController.cs",
-              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\DeadGroundController.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\DeadGroundController.cs",
-              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\DeadGroundController.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\DeadGroundController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T09:24:24.594Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MovingPlatform.cs",
-              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\MovingPlatform.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\MovingPlatform.cs",
-              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\MovingPlatform.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\MovingPlatform.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "Title": "PlatformSpawnerLv2.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawnerLv2.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawnerLv2.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawnerLv2.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawnerLv2.cs",
+              "ViewState": "AgIAAA8BAAAAAAAAAAAQwCgBAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T09:02:34.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlatformSpawner.cs",
-              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\PlatformSpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\PlatformSpawner.cs",
-              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\PlatformSpawner.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\PlatformSpawner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:15:11.728Z",
+              "WhenOpened": "2025-07-15T11:01:07.433Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CameraFollow.cs",
-              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\CameraFollow.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\CameraFollow.cs",
-              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\CameraFollow.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\CameraFollow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RotatingPlatform.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\RotatingPlatform.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\RotatingPlatform.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\RotatingPlatform.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\RotatingPlatform.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAgwFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:02:22.641Z"
+              "WhenOpened": "2025-07-15T10:44:50.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DisappearingPlatform.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\DisappearingPlatform.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\DisappearingPlatform.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\DisappearingPlatform.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\DisappearingPlatform.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T08:54:12.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\PlayerController.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\PlayerController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAQwFAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T08:41:30.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeadGroundController.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\DeadGroundController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\DeadGroundController.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\DeadGroundController.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\DeadGroundController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAQwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T08:41:16.182Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\PlayerController.cs",
-              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB8AAAA2AAAAAAAAAA==",
+              "Title": "PlatformSpawner.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawner.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawner.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\PlatformSpawner.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwNkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T06:42:01.911Z"
+              "WhenOpened": "2025-07-15T08:28:29.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MovingPlatform.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\MovingPlatform.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\MovingPlatform.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\MovingPlatform.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\MovingPlatform.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T08:55:13.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SawBladeController.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\SawBladeController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\SawBladeController.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\SawBladeController.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\SawBladeController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAgwI0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T09:19:32.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SawPlatformController.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\SawPlatformController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\SawPlatformController.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\SawPlatformController.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\SawPlatformController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T09:20:22.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\ScriptPlatform\\CameraFollow.cs",
+              "ToolTip": "C:\\LVA\\FPTU\\Ki 7\\PRU212\\Asm\\PRU_Assignment\\Assets\\Code\\Scripts\\ScriptPlatform\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\ScriptPlatform\\CameraFollow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T08:41:14.503Z"
             }
           ]
         }

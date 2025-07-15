@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: -5722511798743481299}
   - component: {fileID: 506432212969457540}
   - component: {fileID: 3996829426530303277}
+  - component: {fileID: -4412403999997345374}
   m_Layer: 0
-  m_Name: Platform
+  m_Name: DisappearingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6603774, g: 0.37753648, b: 0.37753648, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,3 +175,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMoveSpeed: 1
   baseMoveRange: 2
+--- !u!114 &-4412403999997345374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310598452994259363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2681ddee8e4e4595cd9f339f7f72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disappearDelay: 2
+  blinkInterval: 0.1
+  numberOfBlinks: 10
