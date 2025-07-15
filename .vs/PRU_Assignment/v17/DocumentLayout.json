@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\acer\\Desktop\\123\\Cn7\\PRU212-1\\PRU_Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|c:\\users\\acer\\desktop\\123\\cn7\\pru212-1\\pru_assignment\\assets\\code\\scripts\\skinselection\\charactermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\skinselection\\charactermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|c:\\users\\acer\\desktop\\123\\cn7\\pru212-1\\pru_assignment\\assets\\code\\scripts\\healthbar\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA34F28F-D7C0-3A1C-3BE1-EBD9CAE4C188}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\healthbar\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CharacterManager.cs",
-              "DocumentMoniker": "C:\\Users\\acer\\Desktop\\123\\Cn7\\PRU212-1\\PRU_Assignment\\Assets\\Code\\Scripts\\SkinSelection\\CharacterManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\SkinSelection\\CharacterManager.cs",
-              "ToolTip": "C:\\Users\\acer\\Desktop\\123\\Cn7\\PRU212-1\\PRU_Assignment\\Assets\\Code\\Scripts\\SkinSelection\\CharacterManager.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\SkinSelection\\CharacterManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Title": "ScoreManager.cs",
+              "DocumentMoniker": "C:\\Users\\acer\\Desktop\\123\\Cn7\\PRU212-1\\PRU_Assignment\\Assets\\Code\\Scripts\\HealthBar\\ScoreManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\HealthBar\\ScoreManager.cs",
+              "ToolTip": "C:\\Users\\acer\\Desktop\\123\\Cn7\\PRU212-1\\PRU_Assignment\\Assets\\Code\\Scripts\\HealthBar\\ScoreManager.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\HealthBar\\ScoreManager.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwA8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T15:05:08.396Z",
+              "WhenOpened": "2025-07-15T13:59:26.745Z",
               "EditorCaption": ""
             }
           ]
