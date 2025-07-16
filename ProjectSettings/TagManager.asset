@@ -9,6 +9,9 @@ TagManager:
   - Health
   - Shield
   - Trap
+  - New tag
+  - Platform
+  - StartingGround
   layers:
   - Default
   - TransparentFX
