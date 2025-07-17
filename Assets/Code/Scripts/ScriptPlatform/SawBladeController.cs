@@ -37,7 +37,9 @@ public class SawBladeController : MonoBehaviour
 
                 // Lấy độ rộng của sprite của lưỡi cưa để tính toán lề an toàn
                 SpriteRenderer bladeSprite = GetComponent<SpriteRenderer>();
-                float bladeHalfWidth = (bladeSprite != null) ? bladeSprite.bounds.extents.x : 0.05f; // Đặt một giá trị nhỏ mặc định nếu không có SpriteRenderer trên Blade
+                float bladeHalfWidth = (bladeSprite != null) ?
+                    transform.parent.InverseTransformVector(new Vector3(bladeSprite.bounds.extents.x, 0, 0)).x
+                    : 0.05f;
 
                 // Các điểm giới hạn cục bộ X cho lưỡi cưa
                 // Đảm bảo lưỡi cưa nằm hoàn toàn trên platform
@@ -47,9 +49,9 @@ public class SawBladeController : MonoBehaviour
                 // Điều chỉnh moveRange để đảm bảo nó không vượt quá chiều rộng có sẵn của platform
                 float totalAvailableRange = maxMovementX - minMovementX;
                 // Nếu moveRange được đặt lớn hơn nửa chiều rộng có thể di chuyển, giới hạn lại
-                if (moveRange > totalAvailableRange / 2f)
+                if (moveRange > totalAvailableRange)
                 {
-                    moveRange = totalAvailableRange / 2f;
+                    moveRange = totalAvailableRange;
                 }
 
                 // Thiết lập vị trí cục bộ ban đầu của SawBlade.
@@ -123,10 +125,22 @@ public class SawBladeController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Game Over! Player hit the Saw Blade.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Vector2 playerPos = other.transform.position;
+            Vector2 sawPos = transform.position;
+
+            // CHỈ gây Game Over nếu Player KHÔNG ở dưới lưỡi cưa
+            if (playerPos.y >= sawPos.y)
+            {
+                Debug.Log("Game Over! Player hit the Saw Blade.");
+                //SceneManager.LoadScene(1);
+            }
+            else
+            {
+                Debug.Log("Player touched saw from below — ignore.");
+            }
         }
     }
+
 
     public void StopSaw()
     {

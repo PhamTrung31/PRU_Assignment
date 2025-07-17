@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hp-boost-potion-game-item-vector-49167065-removebg-preview_0: -2395346889865130801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

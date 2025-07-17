@@ -6,6 +6,13 @@ public class DeadGroundController : MonoBehaviour
     public Transform playerTransform;
     // public float followOffset = 5f; // Không cần thiết nếu DeadGround chỉ di chuyển lên từ vị trí ban đầu
     public float moveSpeed = 0.5f;
+    [Header("Advanced Tracking")]
+    public float maxFollowDistance = 10f;
+    public float catchUpSpeed = 1.5f;
+    public float minFollowSpeed = 0.3f;
+    [Header("Kill Pressure Settings")]
+    public float waitBeforeKilling = 5f;
+    private float waitTimer = 0f;
 
     [Header("Difficulty Scaling")]
     public float speedIncreaseRate = 0.01f;
@@ -48,18 +55,31 @@ public class DeadGroundController : MonoBehaviour
 
     void Update()
     {
-        currentMoveSpeed += speedIncreaseRate * Time.deltaTime;
+        if (playerTransform == null) return;
 
-        // Di chuyển DeadGround lên trên
-        transform.position = new Vector3(transform.position.x, transform.position.y + currentMoveSpeed * Time.deltaTime, transform.position.z);
-    }
+        float distanceToPlayer = playerTransform.position.y - transform.position.y;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (distanceToPlayer > maxFollowDistance)
         {
-            Debug.Log("Game Over! Player hit the Dead Ground.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // Quá xa → tăng tốc để đuổi kịp
+            waitTimer = 0f;
+            transform.position += Vector3.up * catchUpSpeed * Time.deltaTime;
+        }
+        else
+        {
+            // Đã gần player → bắt đầu đếm thời gian
+            waitTimer += Time.deltaTime;
+
+            if (waitTimer < waitBeforeKilling)
+            {
+                // Trong thời gian chờ → đứng yên hoặc bò chậm
+                transform.position += Vector3.up * minFollowSpeed * Time.deltaTime;
+            }
+            else
+            {
+                // Đủ thời gian chờ rồi → bắt đầu tiến lên để giết
+                transform.position += Vector3.up * catchUpSpeed * Time.deltaTime;
+            }
         }
     }
 }

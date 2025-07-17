@@ -46,6 +46,24 @@ public class PlatformSpawner : MonoBehaviour
     public float baseMovingPlatformChance = 0.3f;
     public float chanceIncreaseRate = 0.02f;
 
+    [Header("Collectible Item Prefabs")]
+    public GameObject heartItemPrefab;
+    public GameObject boostItemPrefab;
+    public GameObject shieldItemPrefab;
+
+    [Range(0f, 1f)]
+    public float itemSpawnChance = 0.07f;
+
+    [Header("Individual Item Spawn Weights")]
+    [Range(0f, 1f)]
+    public float heartWeight = 0.6f;
+    [Range(0f, 1f)]
+    public float boostWeight = 0.25f;
+    [Range(0f, 1f)]
+    public float shieldWeight = 0.15f;
+
+    private GameObject lastPlatform;
+
     void Start()
     {
         if (playerTransform == null)
@@ -184,6 +202,47 @@ public class PlatformSpawner : MonoBehaviour
             }
         }
         nextPlatformYPosition += spawnHeightOffset;
+
+        if (lastPlatform != null && Random.value < itemSpawnChance)
+        {
+            Vector2 pos1 = lastPlatform.transform.position;
+            Vector2 pos2 = newPlatform.transform.position;
+            Vector2 middlePos = (pos1 + pos2) / 2f;
+
+            SpawnRandomItemAt(middlePos);
+        }
+
+        lastPlatform = newPlatform;
+    }
+
+    void SpawnRandomItemAt(Vector2 position)
+    {
+        if (heartItemPrefab == null || boostItemPrefab == null || shieldItemPrefab == null)
+        {
+            Debug.LogWarning("One or more item prefabs are not assigned.");
+            return;
+        }
+
+        float totalWeight = heartWeight + boostWeight + shieldWeight;
+
+        float randomValue = Random.value * totalWeight;
+
+        GameObject prefabToSpawn = null;
+
+        if (randomValue < heartWeight)
+        {
+            prefabToSpawn = heartItemPrefab;
+        }
+        else if (randomValue < heartWeight + boostWeight)
+        {
+            prefabToSpawn = boostItemPrefab;
+        }
+        else
+        {
+            prefabToSpawn = shieldItemPrefab;
+        }
+
+        Instantiate(prefabToSpawn, position, Quaternion.identity);
     }
 
     private GameObject GetRandomPlatformPrefab(bool allowMovingPlatforms)

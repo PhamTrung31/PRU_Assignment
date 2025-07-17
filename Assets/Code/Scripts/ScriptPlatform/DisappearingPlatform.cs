@@ -4,73 +4,74 @@ using System.Collections; // Rất quan trọng để sử dụng Coroutine
 public class DisappearingPlatform : MonoBehaviour
 {
     [Header("Disappearing Settings")]
-    public float disappearDelay = 2.5f; // Thời gian chờ trước khi nhấp nháy (sau khi Player chạm vào)
-    public float blinkInterval = 0.1f; // Khoảng thời gian giữa mỗi lần nhấp nháy
-    public int numberOfBlinks = 10; // Số lần nhấp nháy trước khi biến mất hoàn toàn
+    public float standTimeBeforeBlink = 1.3f;
+    public float blinkDuration = 1.5f;
+    public float blinkInterval = 0.1f;
 
     private SpriteRenderer spriteRenderer;
     private Collider2D platformCollider;
-
-    private bool hasPlayerTouched = false; // Biến cờ để đảm bảo chỉ kích hoạt một lần
+    private bool isDisappearing = false;
+    private Coroutine disappearRoutine;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         platformCollider = GetComponent<Collider2D>();
 
-        if (spriteRenderer == null)
+        if (!spriteRenderer) Debug.LogError("Missing SpriteRenderer");
+        if (!platformCollider) Debug.LogError("Missing Collider2D");
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isDisappearing) return;
+
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.LogError("DisappearingPlatform: SpriteRenderer not found on this GameObject!", this);
-        }
-        if (platformCollider == null)
-        {
-            Debug.LogError("DisappearingPlatform: Collider2D not found on this GameObject!", this);
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                // Kiểm tra tiếp xúc từ trên (normal hướng lên)
+                if (contact.normal.y > 0.7f)
+                {
+                    // Player đang đứng trên
+                    if (disappearRoutine == null)
+                    {
+                        disappearRoutine = StartCoroutine(DisappearCycle());
+                    }
+                    break;
+                }
+            }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator DisappearCycle()
     {
-        // Kiểm tra xem đối tượng va chạm có phải là Player không
-        // Và đảm bảo chuỗi biến mất chưa được kích hoạt
-        if (collision.gameObject.CompareTag("Player") && !hasPlayerTouched)
+        isDisappearing = true;
+
+        // ⏱ Chờ player đứng trên trong 1.3s
+        yield return new WaitForSeconds(standTimeBeforeBlink);
+
+        // 💡 Nhấp nháy trong 1.5s
+        float elapsed = 0f;
+        while (elapsed < blinkDuration)
         {
-            // Kích hoạt chuỗi biến mất
-            StartDisappearingSequence();
-        }
-    }
-
-    public void StartDisappearingSequence()
-    {
-        // Đặt cờ để ngăn kích hoạt lại
-        hasPlayerTouched = true;
-        // Bắt đầu Coroutine để xử lý việc nhấp nháy và biến mất
-        StartCoroutine(DisappearCoroutine());
-    }
-
-    // Coroutine để xử lý quá trình nhấp nháy và biến mất
-    IEnumerator DisappearCoroutine()
-    {
-        // Đợi một khoảng thời gian trước khi bắt đầu nhấp nháy
-        yield return new WaitForSeconds(disappearDelay);
-
-        // Bắt đầu nhấp nháy
-        for (int i = 0; i < numberOfBlinks; i++)
-        {
-            // Bật/tắt SpriteRenderer để tạo hiệu ứng nhấp nháy
             spriteRenderer.enabled = !spriteRenderer.enabled;
+            elapsed += blinkInterval;
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        // Đảm bảo platform vô hình sau khi nhấp nháy
+        // Ẩn hoàn toàn
         spriteRenderer.enabled = false;
+        platformCollider.enabled = false;
 
-        // Vô hiệu hóa Collider để Player rơi qua
-        if (platformCollider != null)
-        {
-            platformCollider.enabled = false;
-        }
+        // ⏳ Hồi sinh sau vài giây
+        yield return new WaitForSeconds(2f);
 
-        // Hủy đối tượng sau một thời gian ngắn để dọn dẹp bộ nhớ
-        Destroy(gameObject, 0.5f);
+        spriteRenderer.enabled = true;
+        platformCollider.enabled = true;
+
+        // Reset cho lần tiếp theo
+        disappearRoutine = null;
+        isDisappearing = false;
     }
 }

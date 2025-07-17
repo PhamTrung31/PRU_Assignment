@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      1920x1080-101122-digital-geometric-cube-lines-3d-5k_0: 3441825429868706470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

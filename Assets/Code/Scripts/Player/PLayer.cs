@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using Unity.Cinemachine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 public class PLayer : MonoBehaviour
 {
     private Vector2 movementInput;
@@ -46,6 +47,19 @@ public class PLayer : MonoBehaviour
     private ChromaticAberration chromaticEffect;
     public CameraShake cameraShake;
     private CinemachineImpulseSource _impulseSource;
+
+    [Header("Effect Dead")]
+    [SerializeField] public GameObject flyEffectPrefab;
+    [SerializeField] HeartUIManager heartManager;
+
+    [Header("Effect protect")]
+    [SerializeField] private GameObject shieldIconPrefab;
+    private GameObject currentShieldIcon;
+
+    private bool isFlying = false;
+    private string originalTag;
+    private int originalLayer;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -66,7 +80,15 @@ public class PLayer : MonoBehaviour
 
     private void Update()
     {
-
+        if (Keyboard.current != null && Keyboard.current.leftAltKey.isPressed)
+        {
+            EnableFlyMode();
+            _rb.linearVelocity = new Vector2(0, _BoostForce * Time.deltaTime * 10f); // Bay thẳng lên
+        }
+        else
+        {
+            DisableFlyMode();
+        }
     }
 
     private void FixedUpdate()
@@ -115,7 +137,6 @@ public class PLayer : MonoBehaviour
 
         }
 
-        Debug.Log("Moving");
         if (!_canmove)
         {
             return;
@@ -181,20 +202,45 @@ public class PLayer : MonoBehaviour
                Physics2D.Raycast(right, Vector2.down, rayLength, _groundLayer);
 
     }
+
+    public void ShowFlyEffect()
+    {
+        Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(
+            new Vector3(Screen.width / 2, Screen.height / 2, 10f)
+        );
+        Vector3 offset = new Vector3(0f, 1.5f, 0f); // vị trí phía trên đầu player
+        GameObject fx = Instantiate(flyEffectPrefab, transform.position + offset, Quaternion.identity);
+
+        // Gán hiệu ứng làm con của Player (script này đang ở Player)
+        fx.transform.SetParent(transform, worldPositionStays: true);
+
+        Instantiate(flyEffectPrefab, spawnPosition, Quaternion.identity);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Lava"))
         {
             health--;
-
-            if (health <= 0)
+            if(health == 1) 
             {
-                Dead();
-            }
-            else
-            {
-                Debug.Log("Hit Lava but still alive, boosting...");
+                heartManager.RemoveHeart_2();
+                heartManager.ActiveHeart_1();
+                ShowFlyEffect();
                 Boost();
+            }
+
+            if (health == 0)
+            {
+                heartManager.RemoveHeart_2();
+                heartManager.RemoveHeart_1();
+                ShowFlyEffect();
+                Boost();
+            }
+
+            if (health < 0)
+            {
+                ShowFlyEffect();
+                Dead();
             }
         }
         else if (other.CompareTag("BoostItem"))
@@ -205,9 +251,28 @@ public class PLayer : MonoBehaviour
         }
         else if (other.CompareTag("Health"))
         {
-            if (health < maxhealth)
+            if (health <= maxhealth)
             {
-                health += 1;
+                if (health < maxhealth)
+                {
+                    health += 1;
+
+                    if (heartManager != null)
+                    {
+                        if (health == 2)
+                        {
+                            heartManager.ActiveHeart_2();
+                        }
+                        else if (health == 1)
+                        {
+                            heartManager.ActiveHeart_1();
+                        }
+                    }
+                    // Hiệu ứng nhặt item (nếu có)
+                    PlaySFXClip(itemSFX);
+                    ShowFlyEffect(); // Nếu bạn muốn hiệu ứng này khi nhặt tim
+                    //Destroy(other.gameObject);
+                }
             }
             Destroy(other.gameObject); // Remove the health item after collection
         }
@@ -221,13 +286,32 @@ public class PLayer : MonoBehaviour
         {
             if (shieldOn)
             {
-                if (bloodFX != null) Instantiate(bloodFX, transform.position, Quaternion.identity);
                 PlaySFXClip(itemUseSFX);
                 return;
             }
-            health--;
-            Dead();
 
+            health--;
+
+            if (health == 1)
+            {
+                heartManager.RemoveHeart_2();
+                heartManager.ActiveHeart_1();
+                Boost();
+                ShowFlyEffect();
+            }
+
+            if (health == 0)
+            {
+                Boost();
+                heartManager.RemoveHeart_1();
+                ShowFlyEffect();
+            }
+
+            if (health < 0)
+            {
+                Dead();
+                ShowFlyEffect();
+            }
         }
     }
 
@@ -292,22 +376,31 @@ public class PLayer : MonoBehaviour
         _shieldCoroutine = null;
     }
 
-    private void StartShieldCoroutine()
+    private IEnumerator LoadAfterDelay()
     {
-        if (_shieldCoroutine != null)
-        {
-            StopCoroutine(TriggerShield());
-        }
-        _shieldCoroutine = StartCoroutine(TriggerShield());
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
     }
 
     public void Dead()
     {
-        if (health == 0)
+        if (health < 0)
         {
             PlaySFXClip(deathSFX);
             Debug.Log("Player is dead");
-            _heightScoring.SaveScore();
+            if (_heightScoring != null)
+            {
+                _heightScoring.SaveScore();
+                PlayerPrefs.Save();
+                string currentScene = SceneManager.GetActiveScene().name;
+                PlayerPrefs.SetString("PreviousScene", currentScene);
+                PlayerPrefs.Save();
+                StartCoroutine(LoadAfterDelay());
+            }
+            else
+            {
+                Debug.LogError("HeightScoring.Instance is null, cannot save score.");
+            }
         }
     }
     private void PlaySFXClip(AudioClip soundClip)
@@ -316,4 +409,66 @@ public class PLayer : MonoBehaviour
         SFXManager.instance.PlaySFXClip(soundClip, transform, 1f);
     }
 
+    private void StartShieldCoroutine()
+    {
+        shieldOn = true;
+        if (_shieldCoroutine != null)
+            StopCoroutine(_shieldCoroutine);
+        _shieldCoroutine = StartCoroutine(TriggerShield());
+
+        ShowShieldIcon();
+    }
+
+    private void ShowShieldIcon()
+    {
+        if (currentShieldIcon != null)
+            Destroy(currentShieldIcon);
+
+        Vector3 offset = new Vector3(0f, 1.5f, 0f);
+        currentShieldIcon = Instantiate(shieldIconPrefab, transform.position + offset, Quaternion.identity);
+        currentShieldIcon.transform.SetParent(transform, true); // Bám theo player
+
+        // Optional: Animation xoay hoặc fade
+        StartCoroutine(RemoveShieldIconAfter(3f));
+    }
+
+    private IEnumerator RemoveShieldIconAfter(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (currentShieldIcon != null)
+            Destroy(currentShieldIcon);
+    }
+
+    private void EnableFlyMode()
+    {
+        if (isFlying) return;
+
+        isFlying = true;
+
+        // Lưu lại tag và layer gốc
+        originalTag = gameObject.tag;
+        originalLayer = gameObject.layer;
+
+        // Gỡ tag và layer (bằng cách chuyển sang Default)
+        gameObject.tag = "Untagged";
+        gameObject.layer = LayerMask.NameToLayer("Default");
+
+        // Optional: tắt gravity nếu muốn bay đều
+        _rb.gravityScale = 0f;
+        _rb.linearVelocity = Vector2.zero;
+    }
+
+    private void DisableFlyMode()
+    {
+        if (!isFlying) return;
+
+        isFlying = false;
+
+        // Khôi phục tag và layer
+        gameObject.tag = originalTag;
+        gameObject.layer = originalLayer;
+
+        // Bật lại gravity
+        _rb.gravityScale = 1f;
+    }
 }

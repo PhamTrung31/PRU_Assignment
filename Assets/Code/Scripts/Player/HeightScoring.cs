@@ -6,7 +6,9 @@ public class HeightScoring : MonoBehaviour
     private int _score;
 
     [SerializeField] private float _pointsPerUnit = 10f;
-    public  static HeightScoring Instance { get; private set; }
+    [SerializeField] private ScoreDisplay scoreDisplay;
+
+    public static HeightScoring Instance { get; private set; }
     private void Start()
     {
         _highestY = transform.position.y;
@@ -32,6 +34,8 @@ public class HeightScoring : MonoBehaviour
             {
                 _score += pointsToAdd;
                 _highestY = currentY;
+                if (scoreDisplay != null)
+                    scoreDisplay.UpdateScore(_score);
 
                 int recordScore = PlayerPrefs.GetInt("RecordScore", 0);
 
@@ -46,6 +50,7 @@ public class HeightScoring : MonoBehaviour
         if (_score > recordScore)
         {
             PlayerPrefs.SetInt("RecordScore", _score);
+            PlayerPrefs.Save();
             Debug.Log($"New Record Score: {_score}");
         }
 
@@ -76,5 +81,10 @@ public class HeightScoring : MonoBehaviour
         _highestY = transform.position.y;
 
         Debug.Log("Game restarted. Score reset to 0.");
+    }
+
+    public int GetScore()
+    {
+        return _score;
     }
 }

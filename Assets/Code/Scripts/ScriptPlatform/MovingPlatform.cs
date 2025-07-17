@@ -42,25 +42,4 @@ public class MovingPlatform : MonoBehaviour
         moveSpeed *= speedMultiplier;
         moveRange *= rangeMultiplier;
     }
-
-    // << THÊM LOGIC VA CHẠM VỚI PLAYER >>
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Kiểm tra xem đối tượng va chạm có phải là Player không
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Dừng di chuyển của platform
-            isMoving = false;
-        }
-    }
-
-    // Tùy chọn: Nếu bạn muốn nó di chuyển lại khi Player nhảy ra khỏi nó
-    // void OnCollisionExit2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Player"))
-    //     {
-    //         isMoving = true;
-    //     }
-    // }
-    // << KẾT THÚC LOGIC VA CHẠM >>
 }

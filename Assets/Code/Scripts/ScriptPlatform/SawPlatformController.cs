@@ -13,7 +13,7 @@ public class SawPlatformController : MonoBehaviour
         {
             if (sawBlade != null)
             {
-                sawBlade.StopSaw(); // Gọi hàm dừng lưỡi cưa
+                //sawBlade.StopSaw(); // Gọi hàm dừng lưỡi cưa
                 hasPlayerLanded = true;
             }
             else
@@ -22,17 +22,4 @@ public class SawPlatformController : MonoBehaviour
             }
         }
     }
-
-    // Tùy chọn: Nếu bạn muốn lưỡi cưa di chuyển lại khi player rời khỏi platform
-    // void OnCollisionExit2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Player") && hasPlayerLanded)
-    //     {
-    //         if (sawBlade != null)
-    //         {
-    //             sawBlade.StartSaw();
-    //             hasPlayerLanded = false; // Reset cờ
-    //         }
-    //     }
-    // }
 }
